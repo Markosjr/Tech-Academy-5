@@ -1,0 +1,21 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.main {
+  padding: 22px 0 40px;
+}
+
+@media (max-width: 980px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+}
