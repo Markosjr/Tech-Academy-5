@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: agendafacil_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: agendafacil
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agendafacil_api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=agendafacil
+      - JWT_SECRET=supersecret123
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  db_data:
