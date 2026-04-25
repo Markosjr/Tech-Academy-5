@@ -27,6 +27,7 @@ services:
       - DB_USER=root
       - DB_PASS=root
       - DB_NAME=agendafacil
+      - DB_SSL=false
       - JWT_SECRET=supersecret123
     depends_on:
       - db

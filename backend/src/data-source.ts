@@ -12,6 +12,7 @@ export const AppDataSource = new DataSource({
     password: process.env.DB_PASS || "root",
     database: process.env.DB_NAME || "agendafacil",
     synchronize: true,
+    ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : undefined,
     logging: false,
     entities: [User, Project, Task],
     migrations: [],
