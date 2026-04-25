@@ -1,6 +1,7 @@
 import { getToken } from "./authStorage";
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000/api";
+const RAW_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000/api";
+const BASE_URL = RAW_URL.endsWith("/") ? RAW_URL.slice(0, -1) : RAW_URL;
 
 async function request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const token = getToken();
@@ -10,7 +11,8 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
         ...options.headers,
     };
 
-    const response = await fetch(`${BASE_URL}${endpoint}`, {
+    const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
+    const response = await fetch(`${BASE_URL}${cleanEndpoint}`, {
         ...options,
         cache: "no-store",
         headers,
