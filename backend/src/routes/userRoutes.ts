@@ -7,10 +7,8 @@ export const router = Router();
 const userCtrl = new UserController();
 const authCtrl = new AuthController();
 
-// Auth routes
 router.post("/login", (req: Request, res: Response) => authCtrl.login(req, res));
 
-// User routes
 router.post("/register", (req: Request, res: Response) => userCtrl.create(req as AuthRequest, res));
 router.put("/", authMiddleware, (req: Request, res: Response) => userCtrl.update(req as AuthRequest, res));
 router.get("/", authMiddleware, (req: Request, res: Response) => userCtrl.findAll(req as AuthRequest, res));

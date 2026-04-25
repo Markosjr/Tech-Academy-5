@@ -30,7 +30,6 @@ export default function Dashboard() {
 
   return (
     <div style={{ display: "grid", gap: 20 }}>
-      {/* Welcome Header */}
       <div className="surface" style={{ padding: 22, borderRadius: 16 }}>
         <h1 style={{ margin: 0, fontSize: 26 }}>Olá, <span style={{ color: "var(--neon-purple)" }}>{user?.name?.split(" ")[0]}</span>! ✨</h1>
         <p className="muted" style={{ marginTop: 8, fontSize: 15 }}>
@@ -38,7 +37,6 @@ export default function Dashboard() {
         </p>
       </div>
 
-      {/* Stats Grid */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
         <StatCard 
           title="Projetos" 

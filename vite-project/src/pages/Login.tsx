@@ -36,7 +36,6 @@ function formatCpf(value: string): string {
   return `${p1}.${p2}.${p3}-${p4}`
 }
 
-// Validação de CPF (algoritmo oficial)
 function isValidCpf(cpf: string): boolean {
   const c = onlyDigits(cpf)
   if (c.length !== 11) return false
@@ -56,7 +55,6 @@ function isValidCpf(cpf: string): boolean {
   return c.endsWith(`${d1}${d2}`)
 }
 
-// Nível de senha (mínimo): 8+ e 3/4 critérios
 function passwordLevelError(password: string): string | null {
   if (password.length < 8) return "Senha deve conter pelo menos 8 caracteres."
   const hasUpper = /[A-Z]/.test(password)
@@ -226,7 +224,6 @@ export default function Login() {
       }}
     >
       <div className="surface" style={{ width: "100%", maxWidth: 460, padding: 22 }}>
-        {/* Toggle */}
         <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
           <button
             type="button"

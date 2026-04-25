@@ -13,8 +13,6 @@ export async function listProjects(page = 1, limit = 5): Promise<PaginatedProjec
 }
 
 export async function getProjectById(id: string): Promise<Project | null> {
-  // O backend não tem rota de busca por ID específica, mas a listagem traz ou podemos adicionar
-  // Por ora, vamos filtrar na lista ou assumir que o serviço de listagem resolve para a UI
   const { projects } = await listProjects(1, 1000)
   return projects.find((p) => p.id === id) || null
 }

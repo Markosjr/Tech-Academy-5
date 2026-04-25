@@ -77,7 +77,6 @@ export default function ProjectDetails() {
 
   return (
     <div style={{ display: "grid", gap: 20 }}>
-      {/* Project Header */}
       <header className="surface" style={{ padding: 22, borderRadius: 16 }}>
         <button 
           onClick={() => navigate("/projetos")}
@@ -89,7 +88,6 @@ export default function ProjectDetails() {
         <p className="muted" style={{ marginTop: 8 }}>{project?.description || "Sem descrição."}</p>
       </header>
 
-      {/* Task Creation */}
       <div className="surface" style={{ padding: 20, borderRadius: 16 }}>
         <h2 style={{ margin: "0 0 16px" }}>Nova Tarefa</h2>
         <form onSubmit={handleCreateTask} style={{ display: "flex", gap: 10 }}>
@@ -125,7 +123,6 @@ export default function ProjectDetails() {
         </form>
       </div>
 
-      {/* Tasks List */}
       <div className="surface" style={{ padding: 20, borderRadius: 16 }}>
         <h2 style={{ margin: "0 0 16px" }}>Tarefas do Projeto</h2>
         <div style={{ display: "grid", gap: 10 }}>
